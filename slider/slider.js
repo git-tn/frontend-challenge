@@ -90,6 +90,7 @@ class Slider {
   updateSlider() {
     this.items.forEach((page, i) => {
       const x = (i - this.currentIndex) * this.slider.clientWidth + this.moveX;
+      page.style.setProperty('--x', `${x}px`);
       page.style.transform = `translateX(${x}px)`;
     });
   }

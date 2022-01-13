@@ -36,8 +36,16 @@
         align-items: center;
         height: 50%;
       }
+      .title {
+        transform: translateX(calc(var(--x) * 0.5));
+      }
       .description {
         color: #888;
+        transform: translateX(calc(var(--x) * 0.75));
+      }
+      .slider-animation .title,
+      .slider-animation .description {
+        transition: transform 0.5s;
       }
       .page1 .bottom {
         background: linear-gradient(90deg, #6b2abb, #42e7fc);
