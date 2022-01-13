@@ -31,6 +31,20 @@ class Slider {
       this.endDrag(true);
     });
 
+    // touch events
+    this.slider.addEventListener('touchstart', (event) => {
+      this.startDrag(event.targetTouches[0]);
+    });
+    this.slider.addEventListener('touchmove', (event) => {
+      this.dragging(event.targetTouches[0]);
+    });
+    this.slider.addEventListener('touchcancel', () => {
+      this.endDrag(false);
+    });
+    this.slider.addEventListener('touchend', () => {
+      this.endDrag(true);
+    });
+
     this.updateSlider();
     // disable animation fist time
     setTimeout(() => {
