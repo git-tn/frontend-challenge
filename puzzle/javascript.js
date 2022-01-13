@@ -25,7 +25,7 @@ function getPos(el) {
  * shuffle tiles
  * @param n: random count
  */
-function shuffle(n) {
+function shuffle(n = 100) {
   // get tile elements and empty pos
   const tiles = Array.from(document.querySelectorAll(`.puzzle .tile`));
   const box = document.querySelector(`.puzzle`);
