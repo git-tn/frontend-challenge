@@ -1,7 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Slider test</title>
-	</head>
-	<body></body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slider test</title>
+    <style>
+      html {
+        overflow: hidden;
+      }
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      #slider {
+        width: 100%;
+        height: 100%;
+        background-color: green;
+      }
+      @media (min-width: 768px) {
+        #slider {
+          max-width: 600px;
+          max-height: 800px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slider">
+      <div>Page1</div>
+      <div>Page2</div>
+      <div>Page3</div>
+    </div>
+  </body>
 </html>
