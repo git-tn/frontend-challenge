@@ -21,6 +21,49 @@ function getPos(el) {
   return [parseInt(x), parseInt(y)];
 }
 
+/**
+ * shuffle tiles
+ * @param n: random count
+ */
+function shuffle(n) {
+  // get tile elements and empty pos
+  const tiles = Array.from(document.querySelectorAll(`.puzzle .tile`));
+  const box = document.querySelector(`.puzzle`);
+  let [x0, y0] = getPos(box);
+
+  for (let i = 0; i < n; i++) {
+    // get movable tiles (position)
+    const positions = [];
+    function checkInside(x, y) {
+      if (x >= 0 && y >= 0 && x < 3 && y < 3) {
+        positions.push([x, y]);
+      }
+    }
+    checkInside(x0 - 1, y0);
+    checkInside(x0 + 1, y0);
+    checkInside(x0, y0 - 1);
+    checkInside(x0, y0 + 1);
+
+    // random position
+    const randomIndex = Math.floor(Math.random() * positions.length);
+    const [x1, y1] = positions[randomIndex];
+
+    // moving tile
+    for (let i = 0; i < tiles.length; i++) {
+      const [x, y] = getPos(tiles[i]);
+      if (x === x1 && y == y1) {
+        setPos(tiles[i], x0, y0, true);
+        x0 = x;
+        y0 = y;
+        break;
+      }
+    }
+  }
+
+  // save empty position
+  setPos(box, x0, y0);
+}
+
 window.onload = function () {
   // save empty pos
   const box = document.querySelector(`.puzzle`);
