@@ -1,1 +1,25 @@
+.puzzle {
+  position: relative;
+  width: 224px;
+  height: 224px;
+  padding: 10px;
+  list-style: none;
+  background-color: #000;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
 
+.puzzle .tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  background-color: #fff;
+  border: 6px outset #ccc;
+  box-sizing: border-box;
+  font-size: 24px;
+  user-select: none;
+  cursor: pointer;
+}
