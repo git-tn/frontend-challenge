@@ -32,11 +32,16 @@ class Slider {
     });
 
     this.updateSlider();
+    // disable animation fist time
+    setTimeout(() => {
+      this.slider.classList.add('slider-animation');
+    });
   }
 
   startDrag(touch) {
     if (!this.touch0) {
       this.touch0 = touch;
+      this.slider.classList.remove('slider-animation');
     }
   }
 
@@ -50,6 +55,7 @@ class Slider {
   endDrag(isTouchUp) {
     if (this.touch0) {
       this.touch0 = null;
+      this.slider.classList.add('slider-animation');
 
       const dx = isTouchUp ? this.slider.clientWidth / 2 : 0;
 
